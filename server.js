@@ -3,8 +3,8 @@ const app = express()
 const port = 4000
 const Author = require('Author')
 
-app.get('/authors', (req, res) => {
-  Author.find({})
+app.get('/authors', (req, res, next) => {
+  let authors = Author.find({})
   .then(authors => res.json(authors))
 })
 
@@ -12,15 +12,15 @@ app.post('/authors', (req, res) => {
   res.status(200)
 })
 
-app.get('/authors/:author_id', (req, res) => {
+app.get('/authors/:_id', (req, res) => {
   res.status(200)
 })
 
-app.put('/authors/:author_id', (req, res) => {
+app.put('/authors/:_id', (req, res) => {
   res.status(200)
 })
 
-app.delete('/authors/:author_id', (req, res) => {
+app.delete('/authors/:_id', (req, res) => {
   res.status(200)
 })
 
